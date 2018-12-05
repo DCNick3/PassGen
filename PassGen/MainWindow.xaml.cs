@@ -72,5 +72,10 @@ namespace PassGen
         {
             Current.Content = PLength.Value;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(Result.Text);
+        }
     }
 }
