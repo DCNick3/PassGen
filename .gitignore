@@ -1,1 +1,7 @@
 .vs
+*.pdb
+*Temp*
+*.cache
+*.lref
+*.resources
+*Debug*
