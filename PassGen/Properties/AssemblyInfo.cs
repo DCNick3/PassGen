@@ -8,7 +8,7 @@ using System.Windows;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("PassGen")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple password generator app written in C# & WPF")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
 [assembly: AssemblyProduct("PassGen")]

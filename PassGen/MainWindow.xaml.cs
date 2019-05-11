@@ -1,74 +1,74 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Windows;
 
 namespace PassGen
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        private RandomNumberGenerator rnd = RandomNumberGenerator.Create();
+        private static readonly RandomNumberGenerator randomNumberGenerator = RandomNumberGenerator.Create();
+
+        private static int GetNextNumber(int maxValue)
+        {
+            var symbol = new byte[1];
+            randomNumberGenerator.GetBytes(symbol);
+            return symbol[0] % maxValue;
+        }
+
         public MainWindow()
         {
             InitializeComponent();
-            PLength.Minimum = 1;
-            PLength.Maximum = 40;
-            PLength.Value = 10;
-        }
-
-        private int getNewNumber(int mx)
-        {
-            byte[] symbol = new byte[1];
-            rnd.GetBytes(symbol);
-            return symbol[0] % mx;
         }
         
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GenerateButtonClick(object sender, RoutedEventArgs e)
         {
-            string s = String.Empty;
-            for (int i = 0; i < PLength.Value; i++)
+            // for more info check ASCII table
+
+            var resultPassword = string.Empty;
+
+            const int startShift = ' ' + 1;
+            const int charRange = 'z' - '!' + 1;
+
+            for (var i = 0; i < PasswordLengthSlider.Value; i++)
             {
-                int xchar = 33 + getNewNumber(94);
-                if (Digits.IsChecked == true)
+                var charValue = startShift + GetNextNumber(charRange);
+
+                if (UseDigitsCheckBox.IsChecked == true)
                 {
-                    if (Symbols.IsChecked == false)
+                    if (UseSpecialSymbolsCheckBox.IsChecked == false)
                     {
-                        while (xchar < 48 || xchar > 57 && xchar < 65 || xchar > 90 && xchar < 97 || xchar > 122)
-                        {
-                            xchar = 33 + getNewNumber(94);
-                        }
+                        while (charValue < '0' || charValue > '9' && charValue < 'a' || charValue > 'z' && charValue < 'A' || charValue > 'Z')
+                            charValue = startShift + GetNextNumber(charRange);
                     }
                 }
                 else
                 {
-                    if (Symbols.IsChecked == false)
+                    if (UseSpecialSymbolsCheckBox.IsChecked == false)
                     {
-                        while (xchar < 65 || xchar > 90 && xchar < 97 || xchar > 122)
-                        {
-                            xchar = 33 + getNewNumber(94);
-                        }
+                        while (charValue < 'a' || charValue > 'z' && charValue < 'A' || charValue > 'Z')
+                            charValue = startShift + GetNextNumber(charRange);
                     }
                     else
                     {
-                        while (xchar > 47 && xchar < 58)
-                        {
-                            xchar = 33 + getNewNumber(94);
-                        }
+                        while (charValue > '0' && charValue < '9')
+                            charValue = startShift + GetNextNumber(charRange);
                     }
                 }
-                s += Convert.ToChar(xchar);
-            };
-            Result.Text = s;
+
+                resultPassword += Convert.ToChar(charValue);
+            }
+            ResultTextBox.Text = resultPassword;
         }
 
-        private void PLength_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void PasswordLengthSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Current.Content = PLength.Value;
+            if (CurrentPasswordLengthLabel != null)
+                CurrentPasswordLengthLabel.Content = PasswordLengthSlider.Value;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void CopyButtonClick(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(Result.Text);
+            Clipboard.SetText(ResultTextBox.Text);
         }
     }
 }
