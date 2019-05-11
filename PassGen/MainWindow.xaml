@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="Password Generator" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="Result" HorizontalAlignment="Center" Height="30" Margin="0,150,0,0" TextWrapping="Wrap" Text="Result Password" VerticalAlignment="Center" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Result" HorizontalAlignment="Center" Height="30" Margin="0,150,0,0" TextWrapping="Wrap" Text="Result Password" VerticalAlignment="Center" Width="375" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button HorizontalAlignment="Center" Height="40" Content="Generate" VerticalAlignment="Center" Width="100" Margin="0, 0, 0, 0" Click="Button_Click"/>
-        <Slider x:Name="PLength" HorizontalAlignment="Center" Height="30" Margin="0,0,0,150" VerticalAlignment="Center" Width="337" ValueChanged="PLength_ValueChanged" TickFrequency="1" IsSnapToTickEnabled="True"/>
+        <Slider x:Name="PLength" HorizontalAlignment="Center" Height="30" Margin="0,0,0,150" VerticalAlignment="Center" Width="400" ValueChanged="PLength_ValueChanged" TickFrequency="1" IsSnapToTickEnabled="True"/>
         <Label x:Name="Current" Content="1" Height="30" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,210" HorizontalContentAlignment="Center"/>
         <CheckBox x:Name="Digits" Content="Enable digits" HorizontalAlignment="Center" Margin="0,0,0,250" VerticalAlignment="Center"/>
         <CheckBox x:Name="Symbols" Content="Enable special symbols" HorizontalAlignment="Center" Margin="0,0,0,300" VerticalAlignment="Center"/>
