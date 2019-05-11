@@ -39,9 +39,13 @@ namespace PassGen
 
             for (var i = 0; i < PasswordLengthSlider.Value; i++)
             {
-                var charValue = GetNewChar();
-                while (invalidChecks.Any(x => x(charValue)))
+                char charValue;
+
+                do
+                {
                     charValue = GetNewChar();
+                } while (invalidChecks.Any(x => x(charValue)));
+
                 resultPassword += charValue;
             }
             ResultTextBox.Text = resultPassword;
