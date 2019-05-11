@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassGen", "PassGen\PassGen.csproj", "{8D2E16A1-4B2F-47F6-946A-18B8FCFB5F5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassGenLib", "PassGenLib\PassGenLib.csproj", "{5AB17297-A053-478D-8510-FAD591A9A28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassGenCli", "PassGenCli\PassGenCli.csproj", "{602022CB-73D0-4D01-B539-9A344B902139}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{8D2E16A1-4B2F-47F6-946A-18B8FCFB5F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D2E16A1-4B2F-47F6-946A-18B8FCFB5F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D2E16A1-4B2F-47F6-946A-18B8FCFB5F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB17297-A053-478D-8510-FAD591A9A28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB17297-A053-478D-8510-FAD591A9A28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB17297-A053-478D-8510-FAD591A9A28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB17297-A053-478D-8510-FAD591A9A28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602022CB-73D0-4D01-B539-9A344B902139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602022CB-73D0-4D01-B539-9A344B902139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602022CB-73D0-4D01-B539-9A344B902139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602022CB-73D0-4D01-B539-9A344B902139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
